@@ -12,6 +12,7 @@ DIR_GNL		:=	get_next_line
 DIR_MINILIBX	:=	minilibx_macos
 
 LST_SRCS	:=	fdf.c	\
+				ft_parsing.c \
 				get_next_line.c \
 				get_next_line_utils.c \
 

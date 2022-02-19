@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:59:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/19 15:11:41 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/02/19 16:26:45 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include "../incs/fdf.h"
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *str);
+size_t	mod_ft_strlen(char *str);
 char	*ft_strchr(const char *str, int schar);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strndup(char *s1, char c);

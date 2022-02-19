@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:19:10 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/18 12:26:14 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/02/19 19:43:01 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,49 @@ int	main(void)
 {
 	void *id;
 	void *win;
-	int y;
 	int color;
 
-	y = 0;
-	color = 0;
+	color = 253;
 	id = mlx_init();
 	win = mlx_new_window(id, 300, 300, "Hello");
 	if (!id)
 		printf("noob\n");
-	y = 0;
 	color = 0;
-	//mlx_pixel_put (id, win, x, y, color);
-	draw_line(id, win, 0, 0, 300, 300, 0xFFFFFF);
-	draw_line(id, win, 300, 0, 0, 300, 0xFFFFFF);
+	//mlx_pixel_put (id, win, 10, 10, color);
+	//draw_line(id, win, 0, 0, 300, 300, 0xFFFFFF);
+	//draw_line(id, win, 300, 0, 0, 300, 0xFFFFFF);
 
+	int fd;
+	char *rslt = NULL;
+	char	**splited;
+	int i;
+	int x;
+	int	y;
+	int	space;
+
+	i = 0;
+	x = 1;
+	y = 1;
+	fd = open("srcs/10-2.fdf" , O_RDWR);
+	while(i < 5)
+	{
+		rslt = get_next_line(fd);
+		//printf("test");
+		splited = ft_split(rslt, ' ');
+		while(splited[x])
+		{
+			//printf("test");
+			printf("coord : [%d,%d]\n", x, y);
+			mlx_pixel_put (id, win, x, y, 0xFFFFFF);
+			x++;
+		}
+		x = 0;
+		y++;
+		i++;
+	}
+
+	//printf("%s\n", rslt);
+	//printf("%s\n", rslt);
 	mlx_loop(id);
 	return(1);
 }
