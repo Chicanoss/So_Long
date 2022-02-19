@@ -1,51 +1,51 @@
-NAME = FDF
+NAME	:=	FDF
 
-#NAME_BONUS = pipex_bonus
+CC	:= gcc
+CFLAGS	:=	-Wall -Wextra -Werror
+MINILIBX_FLAGS	:=	-framework OpenGL -framework AppKit
 
-SRCS =	SRCS/fdf.c \
+DIR_SRCS	:=	srcs
+DIR_OBJS	:=	.objs
+DIR_INCS	:=	incs
+DIR_LIBFT	:=	libft
+DIR_MINILIBX	:=	minilibx_macos
 
-LIB = minilibx_macos/libmlx.a \
+LST_SRCS	:=	fdf.c	\
 
-#SRCS_BONUS =	SRCS_bonus/pipex_bonus.c \
-				SRCS_bonus/pipex_utils_bonus.c \
-				SRCS_bonus/pipex_conditions_bonus.c \
-				SRCS_bonus/ft_split_bonus.c
+LST_OBJS	:=	$(LST_SRCS:.c=.o)
 
-OBJS = $(SRCS:.c=.o)
+LST_INCS	:=	fdf.h	\
 
-#OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+SRCS	:=	$(addprefix $(DIR_SRCS)/,$(LST_SRCS))
+OBJS	:=	$(addprefix $(DIR_OBJS)/,$(LST_OBJS))
+INCS	:=	$(addprefix $(DIR_INCS)/,$(LST_INCS))
 
-HEADER = incs/fdf.h
+AR_LIBFT	:=	$(DIR_LIBFT)/libft.a
+AR_MINILIBX	:=	$(DIR_MINILIBX)/libmlx.a
 
-#HEADER_BONUS = incs_bonus/pipex_bonus.h
+all: $(NAME)	
 
-CC = gcc
+$(NAME): $(AR_LIBFT) $(AR_MINILIBX) $(OBJS)
+	$(CC) $(CFLAGS) $(MINILIBX_FLAGS) $^ -o $@
 
-FLAGS = -Wall -Werror -Wextra
+ $(DIR_OBJS)/%.o:	$(DIR_SRCS)/%.c	$(INCS)	Makefile	|	$(DIR_OBJS)
+	$(CC) $(CFLAGS) -I $(DIR_INCS) -c $< -o $@
 
-FLAGS2 = -framework OpenGL -framework AppKit
+$(AR_LIBFT):
+	$(MAKE) -C $(DIR_LIBFT)
 
-all: $(NAME)
+$(AR_MINILIBX):
+	$(MAKE) -C $(DIR_MINILIBX)
 
-%.o : %.c $(HEADER) Makefile
-	$(CC) $(FLAGS) -I includes -c $< -o $(<:.c=.o)
+$(DIR_OBJS):
+	mkdir -p $(DIR_OBJS)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(FLAGS2) $(LIB) $(OBJS) -o $(NAME)
-
-#bonus: $(NAME_BONUS)
-
-#$(NAME_BONUS): $(OBJS_BONUS) $(HEADER_BONUS) Makefile
-#	$(CC) $(OBJS_BONUS) -o $(NAME_BONUS)
- 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -rf $(DIR_OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_BONUS)
+	rm -rf $(NAME)
 
 re: fclean all
 
-#re_bonus: fclean bonus
-
-.PHONY:	all bonus clean fclean re
+.PHONY:    all bonus clean fclean re

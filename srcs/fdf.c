@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:19:10 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/17 13:18:29 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/02/18 12:26:14 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	main(void)
 {
 	void *id;
 	void *win;
-	int	x;
 	int y;
 	int color;
 
