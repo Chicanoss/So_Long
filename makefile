@@ -8,13 +8,17 @@ DIR_SRCS	:=	srcs
 DIR_OBJS	:=	.objs
 DIR_INCS	:=	incs
 DIR_LIBFT	:=	libft
+DIR_GNL		:=	get_next_line
 DIR_MINILIBX	:=	minilibx_macos
 
 LST_SRCS	:=	fdf.c	\
+				get_next_line.c \
+				get_next_line_utils.c \
 
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 
 LST_INCS	:=	fdf.h	\
+				get_next_line.h \
 
 SRCS	:=	$(addprefix $(DIR_SRCS)/,$(LST_SRCS))
 OBJS	:=	$(addprefix $(DIR_OBJS)/,$(LST_OBJS))
