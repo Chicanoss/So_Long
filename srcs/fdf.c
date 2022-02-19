@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:19:10 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/19 19:43:01 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/02/19 20:12:31 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,31 @@ int	main(void)
 	int i;
 	int x;
 	int	y;
+	int	j;
 	int	space;
 
 	i = 0;
 	x = 1;
 	y = 1;
+	j = 0;
+	space = 10;
 	fd = open("srcs/10-2.fdf" , O_RDWR);
-	while(i < 5)
+	while(i < 10)
 	{
 		rslt = get_next_line(fd);
 		//printf("test");
 		splited = ft_split(rslt, ' ');
-		while(splited[x])
+		while(splited[j])
 		{
 			//printf("test");
-			printf("coord : [%d,%d]\n", x, y);
+			printf("coord : [%d,%d]\n valeur : %s", x, y, splited[j]);
 			mlx_pixel_put (id, win, x, y, 0xFFFFFF);
-			x++;
+			x += space * 2 + 1;
+			j++;
 		}
 		x = 0;
-		y++;
+		y += space + 1;
+		j = 0;
 		i++;
 	}
 
