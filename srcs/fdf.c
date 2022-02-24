@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:19:10 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/19 22:49:49 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/02/21 19:21:10 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,53 +33,60 @@ int	draw_line (void *mlx, void *win, int beginX, int beginY, int endX, int endY,
 	}
 	return(1);
 }
+int	**put_in_map(char	**splited)
+{
+	int line_counter;
+	//int	j;
+	int	**map;
+
+	line_counter = 0;
+	while(splited[line_counter])
+		line_counter++; //ici c'est égal a 10 (donc le nombre de \n)
+	map = ((int **)malloc((line_counter + 1) * sizeof(int *)));
+	if (!map)
+		return(NULL);
+	line_counter = 0;
+	//j = 0;
+	while (splited[line_counter]) //ça segfault ici
+	{
+		map[line_counter][1] = ft_atoi(splited[line_counter]);
+		line_counter++;
+	}
+	return(map);
+
+}
 
 int	**make_map(fd)
 {
 	int		i;
 	int		j;
-	char	**splited;
+	char	buf[42];
+	//char	**splited;
 	char	*temp;
-	int		**map;
+	int		**map = NULL;
 	
 	i = 0;
 	j = 0;
-	while(i < 9)
-	{
-		temp = get_next_line(fd);
-		splited = ft_split(temp , ' ');
-		map = put_in_map(splited);
-	}
+	while(read(fd, buf, 42 > 0))
+		temp = ft_strjoin(temp, buf);
+	printf("%s\n", temp);
+	//map = put_in_map(splited);
 	return (map);
-}
-
-int	**put_in_map(char	**splited)
-{
-	int	**map;
-	int i;
-
-	
-
 }
 
 int	main(void)
 {
-	int	**map;
+	//int	**map;
 	int	fd;
-	int i;
+	//int i;
 
-	/*parsing 
-	if (!checkmap)
-		return (error);
-	*/
 	fd = open("srcs/10-2.fdf" , O_RDWR);
-	map = make_map(fd);
-	i = 0;
-	//while (map)
-	//{
-		//printf("%d\n" , map[3][1]);
-		//i++;
-	//}
-	
+	if (ft_parsing(fd) == 0)
+	{
+		perror("map_error");
+		exit(EXIT_FAILURE);
+	}
+	//map = make_map(fd);
+	//i = 0;
 	return (1);
 }
