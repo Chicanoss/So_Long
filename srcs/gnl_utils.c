@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   gnl_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 11:56:53 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/19 16:32:07 by rgeral           ###   ########.fr       */
+/*   Created: 2022/04/05 13:38:18 by rgeral            #+#    #+#             */
+/*   Updated: 2022/04/05 13:46:22 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../incs/so_long.h"
 
-size_t	mod_ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -33,7 +33,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = -1;
-	len = mod_ft_strlen(s1);
+	len = ft_strlen(s1);
 	str = malloc(sizeof(char) * (len + ft_strlen(s2) + 1));
 	if (!str)
 		return (0);
@@ -91,7 +91,7 @@ char	*ft_strndup(char *s1, char c)
 	return (array_ptr);
 }
 
-char	*mod_ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;

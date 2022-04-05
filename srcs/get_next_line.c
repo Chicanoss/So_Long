@@ -6,11 +6,11 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/02/19 15:28:52 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/05 17:18:15 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../incs/so_long.h"
 
 static char	*extract_nl(char **str)
 {
