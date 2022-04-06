@@ -5,56 +5,95 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 15:20:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/05 17:18:15 by rgeral           ###   ########.fr       */
+/*   Created: 2022/04/06 11:53:52 by rgeral            #+#    #+#             */
+/*   Updated: 2022/04/06 12:01:22 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../minilibx_macos/mlx.h"
 #include "../incs/so_long.h"
 
-static char	*extract_nl(char **str)
+char    *ft_strcpy(char *s1, char *s2, char *str, unsigned int len)
 {
-	char	*save;
-	char	*tmp;
-
-	tmp = ft_strndup(*str, '\n');
-	save = ft_strndup(ft_strchr(*str, '\n') + 1, '\0');
-	free(*str);
-	*str = save;
-	return (tmp);
+    unsigned int        j;
+    unsigned int        i;
+    j = 0;
+    i = 0;
+    while (s1 && s1[i])
+    {
+        str[i] = s1[i];
+        i++;
+    }
+    j = 0;
+    while (j < len)
+        str[i++] = s2[j++];
+    str[i] = 0;
+    return (str);
 }
-
-static char	*scotch(char *str)
+size_t ft_strlen(const char *str)
 {
-	free(str);
-	return (0);
+    int i;
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
 }
-
-char	*get_next_line(int fd)
+char    *ft_strnjoin(char *s1, char *s2, int len)
 {
-	int			i;
-	char		buf[BUFFER_SIZE + 1];
-	static char	*str = NULL;
-	char		*tmp;
-
-	tmp = 0;
-	i = 1;
-	if (read(fd, buf, 0) < 0)
-		return (NULL);
-	while (!ft_strchr(str, '\n') && i != 0)
-	{
-		i = read(fd, buf, BUFFER_SIZE);
-		if (i < 0)
-			return (0);
-		buf[i] = '\0';
-		str = ft_strjoin(str, buf);
-		if (!str)
-			return (0);
-	}
-	if (ft_strchr(str, '\n'))
-		return (extract_nl(&str));
-	if (str && str[0])
-		tmp = ft_strndup(str, '\0');
-	str = scotch(str);
-	return (tmp);
+    int     i;
+    int     j;
+    char    *str;
+    if (s1)
+        i = ft_strlen((char *)s1);
+    else
+        i = 0;
+    j = len;
+    str = (char *)malloc(sizeof(char) * (i + j + 1));
+    if (!str)
+    {
+        if (s1)
+            free(s1);
+        perror("Error");
+        exit(0);
+    }
+    str = ft_strcpy(s1, s2, str, len);
+    free(s1);
+    return (str);
+}
+int gnl_read(t_gnl *gnl, int fd)
+{
+    if (gnl->bufpos >= gnl->buflen)
+    {
+        gnl->bufpos = 0;
+        gnl->buflen = read(fd, gnl->buffer, 1);
+    }
+    if (gnl->buflen < 0)
+        perror("Error");
+    return (gnl->buflen);
+}
+char    *get_next_line(int fd)
+{
+    static t_gnl    gnl = {{}, 0, 0};
+    char            *before_buf;
+    int             n;
+    int             nl;
+    before_buf = NULL;
+    nl = 0;
+    while (!nl)
+    {
+        n = gnl_read(&gnl, fd);
+        if (n < 0)
+        {
+            if (before_buf)
+                free(before_buf);
+            exit(0);
+        }
+        if (n == 0)
+            break ;
+        n = gnl.bufpos;
+        while (!nl && gnl.bufpos < gnl.buflen)
+            nl = (gnl.buffer[gnl.bufpos++] == '\n');
+        before_buf = ft_strnjoin(before_buf, gnl.buffer + n, gnl.bufpos - n);
+    }
+    return (before_buf);
 }

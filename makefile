@@ -1,7 +1,7 @@
 NAME	:=	so_long
 
 CC	:= gcc
-CFLAGS	:=	-Wall -Wextra
+CFLAGS	:=	-Wall -Wextra -fsanitize=address -g3
 MINILIBX_FLAGS	:=	-framework OpenGL -framework AppKit
 
 DIR_SRCS	:=	srcs
@@ -13,9 +13,10 @@ DIR_MINILIBX	:=	minilibx_macos
 
 LST_SRCS	:=	so_long.c	\
 				get_next_line.c \
-				gnl_utils.c \
 				map_dimensions.c \
 				parsing.c \
+				get_map.c \
+				so_long_utils.c \
 
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 
