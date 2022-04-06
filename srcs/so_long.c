@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/05 17:29:39 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/05 20:12:36 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strnjoin(char *s1, char *s2, int n)
 {
-  int	i;
-  int	j;
+  size_t	i;
+  size_t	j;
   char	*str;
   int	k;
 
@@ -38,22 +38,17 @@ char	*ft_strnjoin(char *s1, char *s2, int n)
 
 int	main(void)
 {
-    int     fd;
-    int     ret;
-    char    buf[42];
-    char    *values;
+    t_args    dim;
 
-    fd = open("srcs/test.ber" , O_RDWR);
-    values = malloc(1);
-    if (!values)
-        return (0);
-    *values = '\0';
-    ret = 1;
-    while (ret)
-    {
-        ret = read(fd, buf, 42);
-        values = ft_strnjoin(values, buf, ret - 1);
-    }
-    printf("%s", values);
+    dim.nbr_line = 0;
+    dim.line_lenght = 0;
+    dim.fd = open("srcs/test.ber" , O_RDWR);
+    ft_parsing(&dim);
+    map_dimension(&dim);
+
+    printf("%s\n", dim.parsing_map);
+    printf ("longeur des lignes : %d\n", dim.line_lenght);
+    printf("Nombre de lignes : %d\n", dim.nbr_line);
+
 	return (1);
 }
