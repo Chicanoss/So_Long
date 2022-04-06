@@ -34,7 +34,8 @@ all: $(NAME)
 $(NAME): $(AR_LIBFT) $(AR_MINILIBX) $(OBJS)
 	$(CC) $(CFLAGS) $(MINILIBX_FLAGS) $^ -o $@
 
- $(DIR_OBJS)/%.o:	$(DIR_SRCS)/%.c	$(INCS)	Makefile	|	$(DIR_OBJS)
+$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c
+	mkdir -p $(DIR_OBJS)
 	$(CC) $(CFLAGS) -I $(DIR_INCS) -c $< -o $@
 
 $(AR_LIBFT):

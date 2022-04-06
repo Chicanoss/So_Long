@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 14:27:15 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:07:50 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_gnl
 char *get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int schar);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_2(char *s1, char *s2);
 char	*ft_strndup(char *s1, char c);
 void	map_dimension(t_args *d);
 char    *ft_strnjoin(char *s1, char *s2, int len);
