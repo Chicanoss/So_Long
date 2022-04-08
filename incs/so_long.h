@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/08 15:58:57 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/08 17:01:43 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ char	*ft_strndup(char *s1, char c);
 void	map_dimension(t_args *d);
 char    *ft_strnjoin(char *s1, char *s2, int len);
 char	*mod_strnjoin(char *s1, char *s2, int n);
-void	ft_parsing(t_args *dim);
-void    get_map(t_args *d);
+void	ft_parsing(t_args *d);
+void    get_lines(t_args *d);
+void	ft_get_map(t_args *dim);
 void    free_all(char **str);
 
 # endif

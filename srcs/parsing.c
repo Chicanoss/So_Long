@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 16:17:32 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/08 18:40:59 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,72 @@
 /*
 	Ne gère pas encore la dernière ligne ??..
 */
-int	lenght_check(t_args *d)
+void	check_borders(t_args *d)
 {
-	int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    j = 0;
-    while (d->parsing_map[i])
-    {
-        if (d->parsing_map[i] == '\n')
-            break;
-        i++;
-		d->line_lenght++;
-    }
-    i = 0;
-    while (d->parsing_map[i])
-    {
-        if (d->parsing_map[i] == '\n')
-        {
-            if(j != d->line_lenght)
-                return(0);
-            else
-                j = -1;
-        }
+	i = 1;
+	j = 0;
+
+	while (j < d->line_lenght - 1)
+	{
+		if (d->map[0][j] != '1')
+		{
+			dprintf(1, "valeur de map[%d][%d] est : %d\n", i , j , d->map[i][j]);
+			dprintf(1, "no borders top\n");
+		}
 		j++;
-        i++;
-    }
-	return(1);
+	}
+	j = 0;
+	while (d->map[i])
+	{
+			while (d->map[i][j])
+			{
+				if (d->map[i][0] != '1' || d->map[i][d->line_lenght - 1] != '1')
+				{
+					dprintf(1, "no borders mid\n");
+					dprintf(1, "valeur de map[%d][%d] est : %d\n", i , j , d->map[i][j]);
+				}
+				j++;
+			}
+			j = 0;
+			i++;
+	}
 }
 
-void	ft_parsing(t_args *dim)
-{
-	int     ret;
-    char    *buffer;
-
-    buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-    dim->parsing_map = malloc(1);
-    dim->parsing_map[0] = '\0';
-    ret = 1;
-    while (ret)
-    {
-        ret = read(dim->fd, buffer, BUFFER_SIZE);
-        dim->parsing_map = mod_strnjoin(dim->parsing_map, buffer, ret - 1);
-    }
-    free(buffer);
-	if (!lenght_check(dim))
-		printf("\nerreur taille lignes\n");
-	printf("Parsing Ok\n");
 	
+	
+	
+	
+	
+	
+	
+	
+	/*while (d->map[i])
+	{
+		while (d->map[i][j])
+		{
+			while (d->map[0][j])
+			{
+				if (i > 0)
+					break;
+				if (d->map[i][j] != '1')
+					dprintf(1, "no borders top\n");
+				j++;
+			}
+		//	if (d->map[i][0] != '1' && d->map[i][d->line_lenght])
+				//dprintf(1, "no borders mid\n");
+			//if (d->map[d->nbr_line][0] != '1' && d->map[d->nbr_line][d->line_lenght] != '1')
+				//dprintf(1, "no borders bot");
+		}
+		j = 0;
+		i++;
+	}
+}*/
+
+void	ft_parsing(t_args *d)
+{
+	check_borders(d);
+	dprintf(1 , "parsing 2 Ok\n");
 }
