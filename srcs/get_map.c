@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 11:21:19 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 14:21:27 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/08 11:42:54 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    get_map(t_args *d)
     i = 0;
     while (i < d->nbr_line)
     {
-        printf("valeur de map de : %d || %s", i , d->map[i]);
+        dprintf(1, "valeur de map de : %d || %s", i , d->map[i]);
         i++;
     }
 }

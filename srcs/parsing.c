@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 14:17:30 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:17:32 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	lenght_check(t_args *d)
         i++;
 		d->line_lenght++;
     }
-//	printf("valeur de i : %d", i);
     i = 0;
     while (d->parsing_map[i])
     {

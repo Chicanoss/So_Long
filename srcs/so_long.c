@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 14:28:12 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/08 16:09:02 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,20 @@
 int	main(void)
 {
     t_args    dim;
+	t_sprite	spr;
+	void	*mlx_ptr;
+	void	*mlx_win;
+	int		w;
+	int		h;
+	int		i;
+	int		j;
+	int		x;
+	int		y;
 
+	x = 0;
+	y = 0;
+	i = 0;
+	j = 0;
     dim.nbr_line = 0;
     dim.line_lenght = 0;
     dim.fd = open("srcs/test.ber" , O_RDWR);
@@ -25,6 +38,39 @@ int	main(void)
     dim.fd = open("srcs/test.ber" , O_RDWR);
     get_map(&dim);
 
+	mlx_ptr = mlx_init();
+	mlx_win = mlx_new_window(mlx_ptr, dim.line_lenght * 32, dim.nbr_line * 32, "./so_long");
+	spr.hero = mlx_xpm_file_to_image(mlx_ptr, "images/hero.xpm", &w, &h);
+	spr.tree = mlx_xpm_file_to_image(mlx_ptr, "images/bush.xpm", &w, &h);
+	spr.grass = mlx_xpm_file_to_image(mlx_ptr, "images/grass.xpm", &w, &h);
+	spr.burger = mlx_xpm_file_to_image(mlx_ptr, "images/burger.xpm", &w, &h);
+	spr.fridge = mlx_xpm_file_to_image(mlx_ptr, "images/fridge.xpm", &w, &h);
+	while (i < dim.nbr_line)
+	{
+		while (j < dim.line_lenght)
+		{
+			if (dim.map[i][j] == 'P')
+			{
+				mlx_put_image_to_window (mlx_ptr, mlx_win, spr.hero, x, y);
+			}
+			if (dim.map[i][j] == '1')
+				mlx_put_image_to_window (mlx_ptr, mlx_win, spr.tree, x, y);
+			if (dim.map[i][j] == '0')
+				mlx_put_image_to_window (mlx_ptr, mlx_win, spr.grass, x, y);
+			if (dim.map[i][j] == 'C')
+				mlx_put_image_to_window (mlx_ptr, mlx_win, spr.burger, x, y);
+			if (dim.map[i][j] == 'E')
+				mlx_put_image_to_window (mlx_ptr, mlx_win, spr.fridge, x, y);
+			
+			j++;
+			x += 32;
+		}
+		j = 0;
+		i++;
+		x = 0;
+		y += 32;
+	}
+	mlx_loop(mlx_ptr);
     //printf("%s\n", dim.parsing_map);
     //printf ("longeur des lignes : %d\n", dim.line_lenght);
     //printf("Nombre de lignes : %d\n", dim.nbr_line);

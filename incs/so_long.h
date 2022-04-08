@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/06 16:07:50 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/08 15:58:57 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ typedef struct s_argument
 	char	**map;
 
 }	t_args;
+
+typedef struct s_sprite
+{
+	void	*hero;
+	void	*tree;
+	void	*grass;
+	void	*burger;
+	void	*fridge;
+} t_sprite;
 
 typedef struct s_gnl
 {
