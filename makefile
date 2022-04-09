@@ -15,6 +15,7 @@ LST_SRCS	:=	so_long.c	\
 				get_next_line.c \
 				get_map.c \
 				parsing.c \
+				borders_parsing.c \
 				so_long_utils.c \
 
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
