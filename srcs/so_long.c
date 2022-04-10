@@ -6,12 +6,26 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/10 14:32:03 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:04:12 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx_macos/mlx.h"
 #include "../incs/so_long.h"
+
+
+
+void    free_all_map(char **str, t_args *d)
+{
+    unsigned int    i;
+    i = 0;
+    while (i < d->nbr_line)
+    {
+        free(str[i]);
+        i++;
+    }
+    free(str);
+}
 
 int	main(void)
 {
@@ -80,7 +94,7 @@ int	main(void)
         dprintf(1, "valeur de map de : %d || %s", i , dim.map[i]);
         i++;
     }*/
-    free_all(dim.map);
+    free_all_map(dim.map, &dim);
     free(dim.parsing_map);
 	return (1);
 }

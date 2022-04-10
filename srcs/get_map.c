@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/10 14:37:42 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/10 14:58:05 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	map_dimension(t_args *d)
     int      i;
 
 	i = 0;
-    d->nbr_line = 1;
+    d->nbr_line = 0;
 	while (d->parsing_map[i])
 	{
 		if(d->parsing_map[i] == '\n')

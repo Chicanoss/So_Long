@@ -1,7 +1,7 @@
 NAME	:=	so_long
 
 CC	:= gcc
-CFLAGS	:=	-Wall -Wextra #-fsanitize=address -g3
+CFLAGS	:=	-Wall -Wextra -fsanitize=address -g3
 MINILIBX_FLAGS	:=	-framework OpenGL -framework AppKit
 
 DIR_SRCS	:=	srcs
