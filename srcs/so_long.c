@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/10 15:04:12 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:35:27 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ void    free_all_map(char **str, t_args *d)
     }
     free(str);
 }
+
+
+int	key_hook(int keycode, t_args *d, void *mlx_ptr, void *mlx_win, t_sprite *spr)
+{
+	int i;
+
+	i = 0;
+	d->map[0][0] = 'P';
+    while (i < d->nbr_line)
+    {
+        dprintf(1, "valeur de map de : %d || %s", i , d->map[i]);
+        i++;
+    }
+	return (0);
+}
+
 
 int	main(void)
 {
@@ -51,7 +67,7 @@ int	main(void)
     ft_get_map(&dim);
 	ft_parsing(&dim);
 
-	/*mlx_ptr = mlx_init();
+	mlx_ptr = mlx_init();
 	mlx_win = mlx_new_window(mlx_ptr, dim.line_lenght * 32, dim.nbr_line * 32, "./so_long");
 	spr.hero = mlx_xpm_file_to_image(mlx_ptr, "images/hero.xpm", &w, &h);
 	spr.tree = mlx_xpm_file_to_image(mlx_ptr, "images/bush.xpm", &w, &h);
@@ -83,7 +99,8 @@ int	main(void)
 		x = 0;
 		y += 32;
 	}
-	mlx_loop(mlx_ptr);*/
+	mlx_key_hook(mlx_win, key_hook, &dim);
+	mlx_loop(mlx_ptr);
 	
     //printf("%s\n", dim.parsing_map);
     //printf ("longeur des lignes : %d\n", dim.line_lenght);
