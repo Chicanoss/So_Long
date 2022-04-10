@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/09 16:43:43 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/10 14:32:03 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,17 @@ int	main(void)
 		x = 0;
 		y += 32;
 	}
-	mlx_loop(mlx_ptr);
-	*/
+	mlx_loop(mlx_ptr);*/
+	
     //printf("%s\n", dim.parsing_map);
     //printf ("longeur des lignes : %d\n", dim.line_lenght);
     //printf("Nombre de lignes : %d\n", dim.nbr_line);
+	/*i = 0;
+    while (i < dim.nbr_line)
+    {
+        dprintf(1, "valeur de map de : %d || %s", i , dim.map[i]);
+        i++;
+    }*/
     free_all(dim.map);
     free(dim.parsing_map);
 	return (1);

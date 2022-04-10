@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/08 16:36:48 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/10 14:37:42 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	ft_get_map(t_args *dim)
 	dim->fd = open("srcs/test.ber" , O_RDWR);
 	generate_map(dim);
 	if (!lenght_check(dim))
-		printf("\nerreur taille lignes\n");
+		printf("Error\nerreur taille lignes\n");
 	dprintf(1, "\nParsing Ok\n");
 	
 }
