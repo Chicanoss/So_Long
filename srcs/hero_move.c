@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:35:33 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/11 15:53:53 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/11 16:26:22 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	go_up(t_args *d)
 {
-	//printf("%d : %d\n", d->player_pos->x , d->player_pos->y);
-	if (d->map[d->player_pos->y - 1][d->player_pos->x - 1] == 'C')
+	if (d->map[d->player_pos->y - 1][d->player_pos->x] == 'C')
 		d->count_burger--;
 	d->map[d->player_pos->y - 1][d->player_pos->x] = 'P';
 	d->map[d->player_pos->y][d->player_pos->x] = '0';
@@ -24,7 +23,7 @@ void	go_up(t_args *d)
 
 void	go_down(t_args *d)
 {
-	if (d->map[d->player_pos->y + 1][d->player_pos->x - 1] == 'C')
+	if (d->map[d->player_pos->y + 1][d->player_pos->x] == 'C')
 		d->count_burger--;
 	d->map[d->player_pos->y + 1][d->player_pos->x] = 'P';
 	d->map[d->player_pos->y][d->player_pos->x] = '0';
@@ -33,7 +32,6 @@ void	go_down(t_args *d)
 
 void	go_right(t_args *d)
 {
-	//printf("%d : %d\n", d->player_pos->x , d->player_pos->y);
 	if (d->map[d->player_pos->y][d->player_pos->x + 1] == 'C')
 		d->count_burger--;
 	d->map[d->player_pos->y][d->player_pos->x + 1] = 'P';
@@ -43,7 +41,6 @@ void	go_right(t_args *d)
 
 void	go_left(t_args *d)
 {
-	//printf("%d : %d\n", d->player_pos->x , d->player_pos->y);
 	if (d->map[d->player_pos->y][d->player_pos->x - 1] == 'C')
 		d->count_burger--;
 	d->map[d->player_pos->y][d->player_pos->x - 1] = 'P';
@@ -52,7 +49,7 @@ void	go_left(t_args *d)
 }
 int hero_move(int	keycode, t_args *d)
 {
-	//printf("%d\n", keycode);
+	dprintf(1, "%d\n", d->count_burger);
 	if (keycode == 13 && d->map[d->player_pos->y - 1][d->player_pos->x] && d->map[d->player_pos->y - 1][d->player_pos->x] != '1')
 	{
 		if (d->map[d->player_pos->y - 1][d->player_pos->x] == 'E' && d->count_burger == 0)
