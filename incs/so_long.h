@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/09 17:29:15 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/11 10:12:33 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,18 @@ typedef struct s_argument
 	char	*BUFFER[42];
 	int		fd;
 	char	**map;
+	void	*mlx_ptr;
+	void	*mlx_win;
+	struct	s_sprite	*spr;
+	struct	s_player_pos *player_pos;
 
 }	t_args;
+
+typedef struct s_player_pos
+{
+	int	x;
+	int	y;
+}				t_player_pos;
 
 typedef struct s_sprite
 {
