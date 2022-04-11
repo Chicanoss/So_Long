@@ -17,6 +17,7 @@ LST_SRCS	:=	so_long.c	\
 				parsing.c \
 				borders_parsing.c \
 				so_long_utils.c \
+				hero_move.c \
 
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 

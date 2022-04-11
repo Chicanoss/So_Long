@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/11 10:05:48 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/11 14:13:48 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ void	much_heroes(t_args *d)
 		while(d->map[i][j])
 		{
 			if (d->map[i][j] == 'P' && count == 0)
-			{
-				d->map[i][j];
 				count++;
-			}
 			else if (d->map[i][j] == 'P' && count == 1)
 				d->map[i][j] = '0';
 			j++;
@@ -79,26 +76,24 @@ void	much_heroes(t_args *d)
 void	valid_game(t_args *d)
 {
 	int	i;
-	int	count_burger;
-	int	count_exit;
 
 	i = 0;
-	count_burger = 0;
-	count_exit = 0;
+	d->count_burger = 0;
+	d->count_exit = 0;
 	while (d->parsing_map[i])
 	{
 		if (d->parsing_map[i] == 'C')
-			count_burger++;
+			d->count_burger++;
 		if (d->parsing_map[i] == 'E')
-			count_exit++;
+			d->count_exit++;
 		i++;
 	}
-	if (count_burger == 0)
+	if (d->count_burger == 0)
 	{
 		perror("Error\nNeed a burger");
 		exit(EXIT_FAILURE);			
 	}
-	if (count_exit == 0)
+	if (d->count_exit == 0)
 	{
 		perror("Error\nNeed an exit");
 		exit(EXIT_FAILURE);			

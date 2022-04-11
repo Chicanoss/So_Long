@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/11 10:12:33 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/11 14:07:35 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_argument
 	char	**map;
 	void	*mlx_ptr;
 	void	*mlx_win;
+	int		count_burger;
+	int		count_exit;
 	struct	s_sprite	*spr;
 	struct	s_player_pos *player_pos;
 
@@ -79,5 +81,6 @@ void    get_lines(t_args *d);
 void	ft_get_map(t_args *dim);
 void    free_all(char **str);
 void    borders_parsing(t_args *d);
+int		 hero_move(int	keycode, t_args *d);
 
 # endif
