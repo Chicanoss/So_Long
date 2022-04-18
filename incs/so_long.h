@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/13 18:20:35 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/14 12:33:32 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,8 @@ char	*mod_strnjoin(char *s1, char *s2, int n);
 void	ft_parsing(t_args *d);
 void    get_lines(t_args *d);
 void	ft_get_map(t_args *dim);
-void    free_all(char **str);
 void    borders_parsing(t_args *d);
-void	hero_move(int	keycode, t_args *d);
+int		hero_move(int	keycode, t_args *d);
 int		ft_strcmp(const char	*first, const char	*second);
 int		exit_condition(t_args *d, char  *option);
 int		exit_up(t_args *d);
@@ -92,5 +91,7 @@ void	go_left(t_args *d);
 void	go_right(t_args *d);
 void	go_down(t_args *d);
 void	go_up(t_args *d);
+void  	ft_exit(t_args *d);
+void    free_all_map(char **str, t_args *d);
 
 # endif

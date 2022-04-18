@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/10 17:58:35 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/16 14:22:00 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,18 @@ void    generate_map(t_args *d)
     dprintf(1, "\n");
 }
 
+void last_line_check(t_args *d)
+{
+    if (ft_strlen(d->map[d->nbr_line - 1]) != (size_t)d->line_lenght)
+    {
+        /*dprintf(1, "line lenght : %d", d->line_lenght );
+        dprintf(1, "taille dernière ligne : %zu\n", ft_strlen(d->map[d->nbr_line - 1]));
+        dprintf(1 , "pas booon");*/
+        perror("not rectangular map");
+        exit(EXIT_FAILURE);
+    }
+}
+
 void	ft_get_map(t_args *dim)
 {
 	int     ret;
@@ -103,6 +115,7 @@ void	ft_get_map(t_args *dim)
 	generate_map(dim);
 	if (!lenght_check(dim))
 		printf("Error\nerreur taille lignes\n");
+    last_line_check(dim);
 	dprintf(1, "\nParsing Ok\n");
 	
 }

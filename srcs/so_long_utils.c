@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:25:38 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/13 17:17:20 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/14 12:56:43 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,12 @@ char	*mod_strnjoin(char *s1, char *s2, int n)
   return (str);
 }
 
-/*void    free_all(char **str)
+void  ft_exit(t_args *d)
 {
-    unsigned int    i;
-    i = 0;
-    while (str[i])
-    {
-        free(str[i]);
-        i++;
-    }
-    free(str);
-}*/
+    free_all_map(d->map, d);
+    free(d->parsing_map);
+    exit(EXIT_FAILURE);
+}
 
 int	ft_strcmp(const char	*first, const char	*second)
 {

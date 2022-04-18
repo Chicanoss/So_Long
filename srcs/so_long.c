@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/11 14:14:49 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/17 10:50:34 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ int	ft_render_frame(t_args *dim)
 		while (j < dim->line_lenght)
 		{
 			if (dim->map[i][j] == 'P')
-			{
 				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->hero, x, y);
-				dim->player_pos->x = j;
-				dim->player_pos->y = i;
-			}
 			else if (dim->map[i][j] == '1')
 				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->tree, x, y);
 			else if (dim->map[i][j] == '0')
@@ -65,8 +61,37 @@ int	ft_render_frame(t_args *dim)
 		x = 0;
 		y += 32;
 	}
-	mlx_key_hook(dim->mlx_win, hero_move, dim);
+	//mlx_key_hook(dim->mlx_win, hero_move, dim);
 	return (0);
+}
+int	map_in_game(t_args *dim)
+{
+	int	x;
+	int	y;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	x = 0;
+	y = 0;
+	while (i < (int)dim->nbr_line)
+	{
+		while (j < dim->line_lenght)
+		{
+			if (dim->map[i][j] == 'P')
+				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->hero, x, y);
+			else if (dim->map[i][j] == '0')
+				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->grass, x, y);
+			j++;
+			x+= 32;
+		}
+		j = 0;
+		i++;
+		x = 0;
+		y += 32;
+	}
+	return(0);
 }
 
 int	main(void)
@@ -95,8 +120,10 @@ int	main(void)
 	spr.grass = mlx_xpm_file_to_image(mlx_ptr, "images/grass.xpm", &w, &h);
 	spr.burger = mlx_xpm_file_to_image(mlx_ptr, "images/burger.xpm", &w, &h);
 	spr.fridge = mlx_xpm_file_to_image(mlx_ptr, "images/fridge.xpm", &w, &h);
-	mlx_loop_hook(mlx_ptr, ft_render_frame, &dim);
-	mlx_clear_window(mlx_ptr, mlx_win);
+	ft_render_frame(&dim);
+	mlx_loop_hook(mlx_ptr, map_in_game, &dim);
+	mlx_key_hook(dim.mlx_win, hero_move, &dim);
+	//mlx_clear_window(mlx_ptr, mlx_win);
 	mlx_loop(mlx_ptr);
 	
     //printf("%s\n", dim.parsing_map);
