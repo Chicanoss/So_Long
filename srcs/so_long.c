@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/17 10:50:34 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/18 11:33:42 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ int	map_in_game(t_args *dim)
 		{
 			if (dim->map[i][j] == 'P')
 				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->hero, x, y);
-			else if (dim->map[i][j] == '0')
-				mlx_put_image_to_window (dim->mlx_ptr, dim->mlx_win, dim->spr->grass, x, y);
 			j++;
 			x+= 32;
 		}
