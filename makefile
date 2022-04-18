@@ -8,7 +8,6 @@ DIR_SRCS	:=	srcs
 DIR_OBJS	:=	.objs
 DIR_INCS	:=	incs
 DIR_LIBFT	:=	libft
-#DIR_GNL		:=	get_next_line
 DIR_MINILIBX	:=	minilibx_macos
 
 LST_SRCS	:=	so_long.c	\

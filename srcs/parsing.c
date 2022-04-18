@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/17 10:00:44 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/18 20:09:56 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,13 @@ void	check_map_char(t_args *d)
 			i++;
 		else
 		{
-			dprintf(1, "valeur de map[%d] : %c\n", i , d->parsing_map[i]);
 			perror("Error\nInvalid char in map");
 			exit(EXIT_FAILURE);
 		}		
 	}
 }
 
-void	much_heroes(t_args *d)
+int	much_heroes(t_args *d)
 {
 	int	i;
 	int	j;
@@ -52,17 +51,12 @@ void	much_heroes(t_args *d)
 	i = 0;
 	j = 0;
 	count = 0;
-
 	while (d->map[i])
 	{
-		while(d->map[i][j])
+		while (d->map[i][j])
 		{
 			if (d->map[i][j] == 'P' && count == 0)
-			{
 				count++;
-				d->player_pos->x = j;
-				d->player_pos->y = i;				
-			}
 			else if (d->map[i][j] == 'P' && count == 1)
 				d->map[i][j] = '0';
 			j++;
@@ -71,10 +65,8 @@ void	much_heroes(t_args *d)
 		j = 0;
 	}
 	if (count == 0)
-	{
-		perror("Error\nNeed a hero");
-		exit(EXIT_FAILURE);		
-	}
+		return (0);
+	return (1);
 }
 
 void	valid_game(t_args *d)
@@ -95,21 +87,39 @@ void	valid_game(t_args *d)
 	if (d->count_burger == 0)
 	{
 		perror("Error\nNeed a burger");
-		exit(EXIT_FAILURE);			
+		exit(EXIT_FAILURE);
 	}
 	if (d->count_exit == 0)
 	{
 		perror("Error\nNeed an exit");
-		exit(EXIT_FAILURE);			
+		exit(EXIT_FAILURE);
 	}
 }
 
 void	ft_parsing(t_args *d)
 {
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (d->map[i])
+	{
+		while (d->map[i][j])
+		{
+			if (d->map[i][j] == 'P')
+			{
+				d->player_pos->x = j;
+				d->player_pos->y = i;
+				break ;
+			}
+			j++;
+		}
+		i++;
+		j = 0;
+	}
 	borders_parsing(d);
 	check_map_char(d);
 	much_heroes(d);
 	valid_game(d);
-
-	dprintf(1 , "parsing 2 Ok\n");
 }
