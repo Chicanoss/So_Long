@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/18 20:09:56 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/04/19 13:34:13 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,10 @@ void	ft_parsing(t_args *d)
 
 	i = 0;
 	j = 0;
+	borders_parsing(d);
+	check_map_char(d);
+	much_heroes(d);
+	valid_game(d);
 	while (d->map[i])
 	{
 		while (d->map[i][j])
@@ -111,6 +115,7 @@ void	ft_parsing(t_args *d)
 			{
 				d->player_pos->x = j;
 				d->player_pos->y = i;
+				dprintf(1, "test");
 				break ;
 			}
 			j++;
@@ -118,8 +123,5 @@ void	ft_parsing(t_args *d)
 		i++;
 		j = 0;
 	}
-	borders_parsing(d);
-	check_map_char(d);
-	much_heroes(d);
-	valid_game(d);
+	i = 0;
 }
