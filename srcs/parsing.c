@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/19 13:34:13 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/06 14:38:02 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,8 @@ void	ft_parsing(t_args *d)
 		{
 			if (d->map[i][j] == 'P')
 			{
-				d->player_pos->x = j;
-				d->player_pos->y = i;
-				dprintf(1, "test");
+				d->x = j;
+				d->y = i;
 				break ;
 			}
 			j++;

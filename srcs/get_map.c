@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/18 20:17:04 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/06 14:36:19 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	map_dimension(t_args *d)
 	d->nbr_line = 1;
 	while (d->parsing_map[i])
 	{
-		if (d->parsing_map[i] == '\n')
+		if (d->parsing_map[i] == '\n' || d->parsing_map == NULL)
 			d->nbr_line++;
 		i++;
 	}

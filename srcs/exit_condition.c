@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_condition.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:09:18 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/18 19:42:08 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/06 14:40:56 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	exit_up(t_args *d)
 {
-	if (d->map[d->player_pos->y - 1][d->player_pos->x] == 'E' &&
+	if (d->map[d->y - 1][d->x] == 'E' &&
 	d->count_burger == 0)
 		exit(EXIT_SUCCESS);
-	else if (d->map[d->player_pos->y - 1][d->player_pos->x] == 'E' &&
+	else if (d->map[d->y - 1][d->x] == 'E' &&
 	d->count_burger != 0)
 		return (0);
 	else
@@ -27,10 +27,10 @@ int	exit_up(t_args *d)
 
 int	exit_down(t_args *d)
 {
-	if (d->map[d->player_pos->y + 1][d->player_pos->x] == 'E' &&
+	if (d->map[d->y + 1][d->x] == 'E' &&
 	d->count_burger == 0)
 		exit(EXIT_SUCCESS);
-	else if (d->map[d->player_pos->y + 1][d->player_pos->x] == 'E' &&
+	else if (d->map[d->y + 1][d->x] == 'E' &&
 	d->count_burger != 0)
 		return (0);
 	else
@@ -40,10 +40,10 @@ int	exit_down(t_args *d)
 
 int	exit_right(t_args *d)
 {
-	if (d->map[d->player_pos->y][d->player_pos->x + 1] == 'E' &&
+	if (d->map[d->y][d->x + 1] == 'E' &&
 	d->count_burger == 0)
 		exit(EXIT_SUCCESS);
-	else if (d->map[d->player_pos->y][d->player_pos->x + 1] == 'E' &&
+	else if (d->map[d->y][d->x + 1] == 'E' &&
 	d->count_burger != 0)
 		return (0);
 	else
@@ -53,10 +53,10 @@ int	exit_right(t_args *d)
 
 int	exit_left(t_args *d)
 {
-	if (d->map[d->player_pos->y][d->player_pos->x - 1] == 'E' &&
+	if (d->map[d->y][d->x - 1] == 'E' &&
 	d->count_burger == 0)
 		exit(EXIT_SUCCESS);
-	else if (d->map[d->player_pos->y][d->player_pos->x - 1] == 'E' &&
+	else if (d->map[d->y][d->x - 1] == 'E' &&
 	d->count_burger != 0)
 		return (0);
 	else

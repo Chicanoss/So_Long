@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/14 12:33:32 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/06 14:37:04 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ typedef struct s_argument
 	int		count_burger;
 	int		count_exit;
 	struct	s_sprite	*spr;
-	struct	s_player_pos *player_pos;
+	int		x;
+	int		y;
+	//struct	s_player_pos *player_pos;
 
 }	t_args;
 
-typedef struct s_player_pos
+/*typedef struct s_player_pos
 {
 	int	x;
 	int	y;
-}				t_player_pos;
+}				t_player_pos;*/
 
 typedef struct s_sprite
 {

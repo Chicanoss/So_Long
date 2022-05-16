@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/04/19 13:29:46 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/16 11:57:03 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,29 @@ int	map_in_game(t_args *dim)
 	return(0);
 }
 
-int	main(void)
+int	main(int argc, char	**argv)
 {
-	t_args    dim;
+	t_args    	dim;
 	t_sprite	spr;
-	void	*mlx_ptr;
-	void	*mlx_win;
-	int		w;
-	int		h;
-	int		i;
+	void		*mlx_ptr;
+	void		*mlx_win;
+	int			w;
+	int			h;
+	int			i;
 
+	if (argc != 2)
+	{
+		perror("Put only the map's path as ARG");
+		exit(EXIT_FAILURE);
+	}
+ 	dim.fd = open(argv[1] , O_RDWR);
+	if(dim.fd == NULL)
+	{
+		perror("cannot open file");
+		exit(EXIT_FAILURE);
+	}
     dim.nbr_line = 0;
     dim.line_lenght = 0;
-    dim.fd = open("srcs/test.ber" , O_RDWR);
     ft_get_map(&dim);
 	ft_parsing(&dim);
 
@@ -118,5 +128,5 @@ int	main(void)
     }
     free_all_map(dim.map, &dim);
     free(dim.parsing_map);
-	return (1);
+	return (0);
 }
