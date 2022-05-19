@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/06 14:38:02 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/19 18:23:58 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void	valid_game(t_args *d)
 	int	i;
 
 	i = 0;
-	d->count_burger = 0;
-	d->count_exit = 0;
 	while (d->parsing_map[i])
 	{
 		if (d->parsing_map[i] == 'C')
 			d->count_burger++;
 		if (d->parsing_map[i] == 'E')
 			d->count_exit++;
+		if (d->parsing_map[i] == 'P')
+			d->count_char++;
 		i++;
 	}
 	if (d->count_burger == 0)
@@ -92,6 +92,11 @@ void	valid_game(t_args *d)
 	if (d->count_exit == 0)
 	{
 		perror("Error\nNeed an exit");
+		exit(EXIT_FAILURE);
+	}
+	if (d->count_char == 0)
+	{
+		perror("Error\nNeed a Hero");
 		exit(EXIT_FAILURE);
 	}
 }

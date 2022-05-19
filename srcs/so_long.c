@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/16 11:57:03 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/19 18:23:52 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,23 @@ int	main(int argc, char	**argv)
 	int			h;
 	int			i;
 
+	dim.count_burger = 0;
+	dim.count_exit = 0;
+	dim.count_char = 0;
 	if (argc != 2)
 	{
 		perror("Put only the map's path as ARG");
 		exit(EXIT_FAILURE);
 	}
  	dim.fd = open(argv[1] , O_RDWR);
-	if(dim.fd == NULL)
+	if (dim.fd == -1)
 	{
 		perror("cannot open file");
 		exit(EXIT_FAILURE);
 	}
     dim.nbr_line = 0;
     dim.line_lenght = 0;
-    ft_get_map(&dim);
+    ft_get_map(&dim, argv);
 	ft_parsing(&dim);
 
 	mlx_ptr = mlx_init();

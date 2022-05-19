@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/06 14:36:19 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/19 18:33:05 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	lenght_check(t_args *d)
 			if (j != d->line_lenght)
 				return (0);
 			else
-			j = -1;
+				j = -1;
 		}
 		j++;
 		i++;
@@ -84,7 +84,7 @@ void	last_line_check(t_args *d)
 	}
 }
 
-void	ft_get_map(t_args *dim)
+void	ft_get_map(t_args *dim, char	**argv)
 {
 	int		ret;
 	char	*buffer;
@@ -100,7 +100,7 @@ void	ft_get_map(t_args *dim)
 	}
 	free(buffer);
 	map_dimension(dim);
-	dim->fd = open("srcs/test.ber", O_RDWR);
+	dim->fd = open(argv[1], O_RDWR);
 	generate_map(dim);
 	if (!lenght_check(dim))
 	{
