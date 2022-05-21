@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:35:33 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/06 14:40:39 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 13:47:48 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	go_up(t_args *d)
 		d->count_burger--;
 	d->map[d->y - 1][d->x] = 'P';
 	d->map[d->y][d->x] = '0';
-	mlx_put_image_to_window (d->mlx_ptr, d->mlx_win, d->spr->grass,
+	mlx_put_image_to_window (d->mlx_p, d->mlx_w, d->spr->grass,
 		d->x * 32, d->y * 32);
 	d->y = d->y - 1;
 }
@@ -29,7 +29,7 @@ void	go_down(t_args *d)
 		d->count_burger--;
 	d->map[d->y + 1][d->x] = 'P';
 	d->map[d->y][d->x] = '0';
-	mlx_put_image_to_window (d->mlx_ptr, d->mlx_win, d->spr->grass,
+	mlx_put_image_to_window (d->mlx_p, d->mlx_w, d->spr->grass,
 		d->x * 32, d->y * 32);
 	d->y = d->y + 1;
 }
@@ -40,7 +40,7 @@ void	go_right(t_args *d)
 		d->count_burger--;
 	d->map[d->y][d->x + 1] = 'P';
 	d->map[d->y][d->x] = '0';
-	mlx_put_image_to_window (d->mlx_ptr, d->mlx_win, d->spr->grass,
+	mlx_put_image_to_window (d->mlx_p, d->mlx_w, d->spr->grass,
 		d->x * 32, d->y * 32);
 	d->x = d->x + 1;
 }
@@ -51,14 +51,14 @@ void	go_left(t_args *d)
 		d->count_burger--;
 	d->map[d->y][d->x - 1] = 'P';
 	d->map[d->y][d->x] = '0';
-	mlx_put_image_to_window (d->mlx_ptr, d->mlx_win, d->spr->grass,
+	mlx_put_image_to_window (d->mlx_p, d->mlx_w, d->spr->grass,
 		d->x * 32, d->y * 32);
 	d->x = d->x - 1;
 }
 
 int	hero_move(int keycode, t_args *d)
 {
-	printf("%d\n", keycode);
+	print_move(d);
 	if (keycode == 13 && d->map[d->y - 1][d->x] &&
 	d->map[d->y - 1][d->x] != '1')
 		exit_up(d);

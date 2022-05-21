@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 17:02:09 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/19 18:20:21 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:57:37 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	top_border(t_args *d)
 	{
 		if (d->map[0][i] != '1')
 		{
-			perror("top border isn't close");
+			perror("top border isn't closed");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -43,7 +43,7 @@ void	mid_border(t_args *d)
 		{
 			if (d->map[i][0] != '1' || d->map[i][d->line_lenght - 1] != '1')
 			{
-				perror("side border isn't close");
+				perror("side border isn't closed");
 				exit(EXIT_FAILURE);
 			}
 			j++;
@@ -62,7 +62,7 @@ void	bot_border(t_args *d)
 	{
 		if (d->map[d->nbr_line - 1][j] != '1')
 		{
-			perror("bot border isn't close");
+			perror("bot border isn't closed");
 			exit(EXIT_FAILURE);
 		}
 		j++;

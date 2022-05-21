@@ -6,11 +6,11 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 11:53:52 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/19 18:22:41 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/20 13:45:00 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_macos/mlx.h"
+#include "../mlx/mlx.h"
 #include "../incs/so_long.h"
 
 char	*ft_strcpy(char *s1, char *s2, char *str, unsigned int len)

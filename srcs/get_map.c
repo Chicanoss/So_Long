@@ -6,11 +6,11 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/19 18:33:05 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/20 13:45:07 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_macos/mlx.h"
+#include "../mlx/mlx.h"
 #include "../incs/so_long.h"
 
 int	lenght_check(t_args *d)

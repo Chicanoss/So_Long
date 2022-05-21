@@ -6,11 +6,11 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/19 18:23:58 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 13:26:55 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_macos/mlx.h"
+#include "../mlx/mlx.h"
 #include "../incs/so_long.h"
 /*
 	Ne gère pas encore la dernière ligne ??..
@@ -64,8 +64,6 @@ int	much_heroes(t_args *d)
 		i++;
 		j = 0;
 	}
-	if (count == 0)
-		return (0);
 	return (1);
 }
 
@@ -84,19 +82,10 @@ void	valid_game(t_args *d)
 			d->count_char++;
 		i++;
 	}
-	if (d->count_burger == 0)
+	if (d->count_burger == 0 || d->count_char == 0 || d->count_char == 0)
 	{
-		perror("Error\nNeed a burger");
-		exit(EXIT_FAILURE);
-	}
-	if (d->count_exit == 0)
-	{
-		perror("Error\nNeed an exit");
-		exit(EXIT_FAILURE);
-	}
-	if (d->count_char == 0)
-	{
-		perror("Error\nNeed a Hero");
+		perror("Error\nValid map need at least : one burger, \
+one exit, one hero");
 		exit(EXIT_FAILURE);
 	}
 }
