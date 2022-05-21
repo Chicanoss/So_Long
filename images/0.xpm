@@ -1,0 +1,26 @@
+/* XPM */
+static char *_1f22cedfe444080b25c79747fe51008HFnjnS9FOVzMbJbP[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"@ c magenta",
+"  c magenta",
+". c black",
+"X c black",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXX@   @XXXXXX",
+"XXXX@ XXX @XXXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXX@ XXXXX @XXXX",
+"XXXX@ XXX @XXXXX",
+"XXXXX@   @XXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX"
+};

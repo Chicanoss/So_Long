@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:25:38 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 13:48:24 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 19:47:19 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*mod_strnjoin(char *s1, char *s2, int n)
 	return (str);
 }
 
-void	ft_exit(t_args *d)
+int	ft_exit(t_args *d)
 {
 	free_all_map(d->map, d);
 	free(d->parsing_map);
@@ -53,9 +53,16 @@ int	ft_strcmp(const char	*first, const char	*second)
 	return ((unsigned char)first[i] - (unsigned char)second[i]);
 }
 
-void	print_move(t_args *d)
+int	ft_int_len(int x)
 {
-	d->actions++;
-	ft_putnbr_fd(d->actions, 1);
-	write(1, "\n", 1);
+	int	i;
+
+	i = 0;
+	if (x > 0)
+	{
+		if (x > 9)
+			i += ft_int_len(x / 10);
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 13:45:05 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 19:36:51 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ void	basic_parsing(char	**argv, int argc, t_args dim)
 {
 	if (is_ber(argv[1]) == 0)
 	{
-		perror("File is not .BER");
+		perror("Error\nFile is not .BER");
 		exit(EXIT_FAILURE);
 	}
 	if (argc != 2)
 	{
-		perror("Put only the map's path as ARG");
+		perror("Error\nPut only the map's path as ARG");
 		exit(EXIT_FAILURE);
 	}
 	dim.fd = open(argv[1], O_RDWR);
 	if (dim.fd == -1)
 	{
-		perror("cannot open file");
+		perror("Error\ncannot open file");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -65,6 +65,7 @@ void	initialize(t_args *dim, char	**argv)
 	dim->nbr_line = 0;
 	dim->line_lenght = 0;
 	dim->actions = 0;
+	dim->w = 0;
 }
 
 int	main(int argc, char	**argv)

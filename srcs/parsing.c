@@ -6,15 +6,13 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 13:26:55 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 17:00:01 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../incs/so_long.h"
-/*
-	Ne gère pas encore la dernière ligne ??..
-*/
+
 void	check_map_char(t_args *d)
 {
 	int	i;

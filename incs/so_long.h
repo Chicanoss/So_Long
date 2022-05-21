@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:32:00 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 14:22:54 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 19:36:44 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_argument
 	int				y;
 	int				count_char;
 	int				actions;
+	int				height;
+	int				w;
 	struct s_sprite	*spr;
 }	t_args;
 
@@ -54,6 +56,7 @@ typedef struct s_sprite
 	void	*grass;
 	void	*burger;
 	void	*fridge;
+	void	*nmb[10];
 }	t_sprite;
 
 typedef struct s_gnl
@@ -86,12 +89,14 @@ void	go_left(t_args *d);
 void	go_right(t_args *d);
 void	go_down(t_args *d);
 void	go_up(t_args *d);
-void	ft_exit(t_args *d);
+int		ft_exit(t_args *d);
 void	free_all_map(char **str, t_args *d);
 int		map_in_game(t_args *dim);
 void	draw_on_map(t_args	dim);
 int		ft_render_frame(t_args *dim, t_sprite *spr);
 int		map_in_game(t_args *dim);
 void	print_move(t_args *d);
+void	ft_print_moov(t_args *d, t_sprite *s, int x, int y);
+int		ft_int_len(int x);
 
 #endif

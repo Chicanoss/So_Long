@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:35:33 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 13:47:48 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 19:45:09 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	go_left(t_args *d)
 
 int	hero_move(int keycode, t_args *d)
 {
-	print_move(d);
+	d->actions++;
+	ft_print_moov(d, d->spr, d->actions, ft_int_len(d->actions));
 	if (keycode == 13 && d->map[d->y - 1][d->x] &&
 	d->map[d->y - 1][d->x] != '1')
 		exit_up(d);

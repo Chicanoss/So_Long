@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/20 13:45:07 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/21 16:59:18 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	last_line_check(t_args *d)
 {
 	if (ft_strlen(d->map[d->nbr_line - 1]) != (size_t)d->line_lenght)
 	{
-		perror("not rectangular map");
+		perror("Error\nnot rectangular map");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -104,7 +104,7 @@ void	ft_get_map(t_args *dim, char	**argv)
 	generate_map(dim);
 	if (!lenght_check(dim))
 	{
-		perror("line lenght error");
+		perror("Error\nline lenght error");
 		exit(EXIT_FAILURE);
 	}
 	last_line_check(dim);
