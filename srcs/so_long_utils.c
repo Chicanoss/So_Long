@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:25:38 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:19 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/22 16:09:36 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	ft_strcmp(const char	*first, const char	*second)
 	return ((unsigned char)first[i] - (unsigned char)second[i]);
 }
 
-int	ft_int_len(int x)
+unsigned int	ft_int_len(unsigned int x)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	if (x > 0)

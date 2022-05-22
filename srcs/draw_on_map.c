@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 12:15:40 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 19:38:08 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/22 16:10:20 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_render_frame(t_args *d, t_sprite *s)
 	return (0);
 }
 
-void	ft_print_moov(t_args *d, t_sprite *s, int x, int y)
+void	ft_print_moov(t_args *d, t_sprite *s, unsigned int x, unsigned int y)
 {
 	if (x > 9)
 		ft_print_moov(d, s, x / 10, y - 1);
