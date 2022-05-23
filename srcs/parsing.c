@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:56:15 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 17:00:01 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/23 14:06:29 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	valid_game(t_args *d)
 			d->count_char++;
 		i++;
 	}
-	if (d->count_burger == 0 || d->count_char == 0 || d->count_char == 0)
+	if (d->count_burger == 0 || d->count_char == 0 || d->count_exit == 0)
 	{
 		perror("Error\nValid map need at least : one burger, \
 one exit, one hero");

@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/21 16:59:18 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/23 13:57:40 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_get_map(t_args *dim, char	**argv)
 	generate_map(dim);
 	if (!lenght_check(dim))
 	{
-		perror("Error\nline lenght error");
+		perror("Error\nnot rectangular map");
 		exit(EXIT_FAILURE);
 	}
 	last_line_check(dim);

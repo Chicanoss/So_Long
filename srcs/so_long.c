@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:12 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/22 16:14:26 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/23 14:14:14 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	basic_parsing(char	**argv, int argc, t_args dim)
 {
 	if (is_ber(argv[1]) == 0)
 	{
-		perror("Error\nFile is not .BER");
+		perror("Error\nFile is not .ber");
 		exit(EXIT_FAILURE);
 	}
 	if (argc != 2)
