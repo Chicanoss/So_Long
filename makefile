@@ -64,7 +64,7 @@ fclean: clean
 	@$(MAKE) clean -C mlx
 	@$(MAKE) fclean -C libft
 	rm -rf $(NAME)
-	@echo "fclean : done"
+	@echo "fclean : done !"
 
 re: fclean all
 
