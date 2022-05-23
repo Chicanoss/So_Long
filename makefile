@@ -1,7 +1,7 @@
 NAME	:=	so_long
 
 CC	:= gcc
-CFLAGS	:=	-Wall -Wextra -Werror
+CFLAGS	:=	-Wall -Wextra -Werror #-fsanitize=address
 MINILIBX_FLAGS	:=	-framework OpenGL -framework AppKit
 
 DIR_SRCS	:=	srcs
@@ -36,7 +36,7 @@ all: $(NAME)
 $(NAME): $(AR_LIBFT) $(AR_MINILIBX) $(OBJS)
 	$(CC) $(CFLAGS) $(MINILIBX_FLAGS) -o $@ $(OBJS) $(AR_MINILIBX) $(AR_LIBFT)
 
-$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c Makefile $(INCS)
+$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c makefile $(INCS)
 	mkdir -p $(DIR_OBJS)
 	$(CC) $(CFLAGS) -I $(DIR_INCS) -c $< -o $@
 
@@ -55,6 +55,8 @@ compile:
 	@$(MAKE) -C libft
 	@echo " [ OK ] | Libft ready!"
 
+bonus : all
+
 clean:
 	rm -rf $(DIR_OBJS)
 	@$(MAKE) clean -C libft
@@ -68,4 +70,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:    all clean fclean re
+.PHONY:    all bonus clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hero_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:35:33 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/22 16:06:46 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/23 17:46:35 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	go_left(t_args *d)
 
 int	hero_move(int keycode, t_args *d)
 {
-	d->actions++;
-	ft_print_moov(d, d->spr, d->actions, ft_int_len(d->actions));
 	if (keycode == 13 && d->map[d->y - 1][d->x] &&
 	d->map[d->y - 1][d->x] != '1')
 		exit_up(d);
@@ -74,5 +72,6 @@ int	hero_move(int keycode, t_args *d)
 		exit_left(d);
 	else if (keycode == 53)
 		ft_exit(d);
+	ft_print_moov(d, d->spr, d->actions, ft_int_len(d->actions));
 	return (0);
 }

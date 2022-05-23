@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:28:39 by rgeral            #+#    #+#             */
-/*   Updated: 2022/05/23 13:57:40 by rgeral           ###   ########.fr       */
+/*   Updated: 2022/05/23 17:39:48 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,6 @@ void	generate_map(t_args *d)
 
 	i = 0;
 	d->map = ft_calloc(d->nbr_line + 1, sizeof(char *));
-	while (i < d->nbr_line)
-	{
-		d->map[i] = ft_calloc(d->line_lenght + 1, sizeof(char));
-		i++;
-	}
-	i = 0;
 	while (i < d->nbr_line)
 	{
 		d->map[i] = get_next_line(d->fd);
